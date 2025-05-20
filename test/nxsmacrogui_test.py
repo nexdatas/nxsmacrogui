@@ -82,6 +82,18 @@ optional arguments:
   --log LOG             logging level, i.e. debug, info, warning, """ \
       """error, critical
 """
+        self.helpinfo2 = """usage: nxsmacrogui [-h] [-s SERVER] """ \
+            """[-d DOOR] [--log LOG]
+
+NeXus Macro GUI
+
+options:
+  -h, --help           show this help message and exit
+  -s, --server SERVER  selector server
+  -d, --door DOOR      door device name
+  --log LOG            logging level, i.e. debug, info, warning, """ \
+      """error, critical
+"""
         try:
             # random seed
             self.seed = long(binascii.hexlify(os.urandom(16)), 16)
@@ -200,10 +212,16 @@ optional arguments:
             if Application.instance() is None:
                 vt = "".join(vl.split()).replace(
                     "optionalarguments:", "options:")
-                helpinfo = "".join(self.helpinfo.split()).replace(
-                    "optionalarguments:", "options:")
-                self.assertTrue(
-                    vt.endswith(helpinfo))
+                if sys.version_info >= (3, 13):
+                    helpinfo = "".join(self.helpinfo2.split()).replace(
+                        "optionalarguments:", "options:")
+                    self.assertTrue(
+                        vt.endswith(helpinfo))
+                else:
+                    helpinfo = "".join(self.helpinfo.split()).replace(
+                        "optionalarguments:", "options:")
+                    self.assertTrue(
+                        vt.endswith(helpinfo))
                 self.assertEqual('', er)
 
 
