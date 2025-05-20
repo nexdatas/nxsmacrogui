@@ -58,7 +58,7 @@ Extract the sources and run
 
 .. code-block:: console
 
-	  $ python setup.py install
+	  $ python3 setup.py install
 
 Debian packages
 ^^^^^^^^^^^^^^^
@@ -201,7 +201,7 @@ If the `RecoderPath` property of MacroServer is not set one can do it by
 
 .. code-block:: console
 
-	  $ nxsetup add-recorder-path  /usr/lib/python2.7/dist-packages/sardananxsrecorder
+	  $ nxsetup add-recorder-path  /usr/lib/python3/dist-packages/sardananxsrecorder
 
 where the path should point the `sardananxsrecorder` package.
 
