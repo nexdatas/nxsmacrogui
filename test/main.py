@@ -31,11 +31,11 @@ try:
     except Exception:
         __import__("PyTango")
 
-    # if module PyTango avalable
+    # if module tango avalable
     PYTANGO_AVAILABLE = True
 except ImportError as e:
     PYTANGO_AVAILABLE = False
-    print("PyTango is not available: %s" % e)
+    print("tango is not available: %s" % e)
 
 try:
     try:
@@ -44,7 +44,7 @@ try:
         __import__("pni.nx.h5")
     # if module pni avalable
     PNI_AVAILABLE = True
-except ImportError as e:
+except Exception as e:
     PNI_AVAILABLE = False
     print("pni is not available: %s" % e)
 
@@ -52,7 +52,7 @@ try:
     __import__("h5py")
     # if module pni avalable
     H5PY_AVAILABLE = True
-except ImportError as e:
+except Exception as e:
     H5PY_AVAILABLE = False
     print("h5py is not available: %s" % e)
 
@@ -72,6 +72,7 @@ if not PNI_AVAILABLE and not H5PY_AVAILABLE and not H5CPP_AVAILABLE:
 # if H5PY_AVAILABLE:
 # if PNI_AVAILABLE and H5PY_AVAILABLE:
 
+
 # list of available databases
 DB_AVAILABLE = []
 
@@ -80,7 +81,6 @@ try:
     # connection arguments to MYSQL DB
     args = {}
     args["db"] = 'tango'
-    args["host"] = 'localhost'
     args["read_default_file"] = '/etc/my.cnf'
     # inscance of MySQLdb
     mydb = MySQLdb.connect(**args)
@@ -92,7 +92,7 @@ except Exception:
         from os.path import expanduser
         home = expanduser("~")
         # connection arguments to MYSQL DB
-        args2 = {'host': u'localhost', 'db': u'tango',
+        args2 = {'db': u'tango',
                  'read_default_file': u'%s/.my.cnf' % home,
                  'use_unicode': True}
         # inscance of MySQLdb
@@ -127,10 +127,10 @@ except Exception:
 
 try:
     import cx_Oracle
+    passwd = ""
     # pwd
     # passwd = open(
-    #     '%s/pwd' % os.path.dirname(ConvertersTest.__file__)).read()[:-1]
-    passwd = ""
+    #    '%s/pwd' % os.path.dirname(ConvertersTest.__file__)).read()[:-1]
 
     # connection arguments to ORACLE DB
     args = {}
@@ -160,7 +160,6 @@ def main():
     # ts = None
 
     # test suit
-    # db = PyTango.Database()
     suite = unittest.TestSuite()
 
     suite.addTests(
