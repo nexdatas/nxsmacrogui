@@ -69,11 +69,11 @@ def remove_option(sopt, lopt):
 
 def main():
 
-    if "GNOME_DESKTOP_SESSION_ID" not in os.environ:
-        os.environ["GNOME_DESKTOP_SESSION_ID"] = "qtconfig"
-    if os.path.isdir("/usr/lib/kde4/plugins/") and \
-       "QT_PLUGIN_PATH" not in os.environ:
-        os.environ["QT_PLUGIN_PATH"] = "/usr/lib/kde4/plugins/"
+    # if "GNOME_DESKTOP_SESSION_ID" not in os.environ:
+    #     os.environ["GNOME_DESKTOP_SESSION_ID"] = "qtconfig"
+    # if os.path.isdir("/usr/lib/kde4/plugins/") and \
+    #    "QT_PLUGIN_PATH" not in os.environ:
+    #     os.environ["QT_PLUGIN_PATH"] = "/usr/lib/kde4/plugins/"
 
     import argparse
     parser = argparse.ArgumentParser(

@@ -32,7 +32,7 @@ except Exception:
     import PyTango as tango
 
 #: version of the application
-__version__ = "1.3.0"
+__version__ = "1.3.1"
 
 
 def replaceText(node, text):
