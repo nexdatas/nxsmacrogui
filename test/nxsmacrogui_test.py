@@ -69,7 +69,7 @@ class NXSMacroGUITest(unittest.TestCase):
 
         self.helperror = "Error: too few arguments\n"
 
-        self.helpinfo = """usage: nxsmacrogui [-h] [-s SERVER] """ \
+        self.helpinfo = """[-h] [-s SERVER] """ \
             """[-d DOOR] [--log LOG]
 
 NeXus Macro GUI
@@ -82,7 +82,7 @@ optional arguments:
   --log LOG             logging level, i.e. debug, info, warning, """ \
       """error, critical
 """
-        self.helpinfo2 = """usage: nxsmacrogui [-h] [-s SERVER] """ \
+        self.helpinfo2 = """[-h] [-s SERVER] """ \
             """[-d DOOR] [--log LOG]
 
 NeXus Macro GUI
