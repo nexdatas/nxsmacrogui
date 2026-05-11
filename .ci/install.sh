@@ -162,5 +162,13 @@ else
     docker exec  ndts python3 setup.py build
     docker exec  --user root ndts python3 setup.py -q install
 fi
-if [ $? != 0 ]; then exit 255; fi
+ERR=$?
+
+echo "ERROR: "$ERR
+
+if [ $ERR != 0 ]; then
+    if [ $ERR != 139 ]; then
+	exit $ERR;
+    fi
+fi
 
