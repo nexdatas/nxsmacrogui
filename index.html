@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Welcome to nxstaurusgui’s documentation! &#8212; NXS Taurus GUI 1.3.0 documentation</title>
+    <title>Welcome to nxstaurusgui’s documentation! &#8212; NXS Taurus GUI 1.3.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -155,21 +155,22 @@
 <div class="line"><a class="reference external" href="https://github.com/nexdatas/nxsmacrogui/">https://github.com/nexdatas/nxsmacrogui/</a></div>
 </div>
 <p>Extract the sources and run</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>setup.py<span class="w"> </span>install
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>setup.py<span class="w"> </span>install
 </pre></div>
 </div>
 </section>
 <section id="debian-packages">
 <h3>Debian packages<a class="headerlink" href="#debian-packages" title="Permalink to this heading">¶</a></h3>
-<p>Debian Bookworm, Bullseye, Buster and  Ubuntu Lunar, Jammy, Focal  packages can be found in the HDRI repository.</p>
+<p>Debian Trixie, Bookworm, Bullseye and  Ubuntu Resolute, Noble, Jammy packages can be found in the HDRI repository.</p>
 <p>To install the debian packages, add the PGP repository key</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>su
-<span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>http://repos.pni-hdri.de/debian_repo.pub.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+<span class="gp">$ </span>curl<span class="w"> </span>-s<span class="w"> </span>http://repos.pni-hdri.de/debian_repo.pub.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>gpg<span class="w"> </span>--no-default-keyring<span class="w"> </span>--keyring<span class="w"> </span>gnupg-ring:/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg<span class="w"> </span>--import
+<span class="gp">$ </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>/etc/apt/trusted.gpg.d/debian-hdri-repo.gpg
 </pre></div>
 </div>
 <p>and then download the corresponding source list</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/etc/apt/sources.list.d
-<span class="gp">$ </span>wget<span class="w"> </span>http://repos.pni-hdri.de/bookworm-pni-hdri.list
+<span class="gp">$ </span>wget<span class="w"> </span>http://repos.pni-hdri.de/trixie-pni-hdri.sources
 </pre></div>
 </div>
 <p>Finally,</p>
@@ -260,7 +261,7 @@ for MacroServer to 3 and restart servers.</p>
 </div>
 <p>for specific servers.</p>
 <p>If the <cite>RecoderPath</cite> property of MacroServer is not set one can do it by</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nxsetup<span class="w"> </span>add-recorder-path<span class="w">  </span>/usr/lib/python2.7/dist-packages/sardananxsrecorder
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nxsetup<span class="w"> </span>add-recorder-path<span class="w">  </span>/usr/lib/python3/dist-packages/sardananxsrecorder
 </pre></div>
 </div>
 <p>where the path should point the <cite>sardananxsrecorder</cite> package.</p>
