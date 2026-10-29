@@ -70,8 +70,8 @@ release = ''
 
 try:
     sys.path.insert(0, os.path.abspath("../"))  # Adjust path as necessary
-    import nxstaurusgui
-    version = ".".join(nxstaurusgui.__version__.split(".")[:2])
+    from nxstaurusgui import release
+    version = ".".join(release.__version__.split(".")[:2])
     release = release.__version__
 except Exception:
     pass

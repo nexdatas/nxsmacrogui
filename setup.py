@@ -54,7 +54,7 @@ def read(fname):
 
 
 def get_version():
-    path = Path(__file__).parent / "nxstaurusgui" / "__init__.py"
+    path = Path(__file__).parent / "nxstaurusgui" / "release.py"
     spec = spec_from_file_location("nxstaurusgui", path.as_posix())
     module = module_from_spec(spec)
     spec.loader.exec_module(module)
