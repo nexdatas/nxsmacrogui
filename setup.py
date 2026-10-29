@@ -27,6 +27,8 @@ from setuptools import setup
 # from distutils.command.build import build
 # from distutils.command.clean import clean
 # from distutils.command.install_scripts import install_scripts
+from importlib.util import module_from_spec, spec_from_file_location
+from pathlib import Path
 
 try:
     from sphinx.setup_command import BuildDoc
@@ -37,7 +39,7 @@ except Exception:
 #: package name
 TOOL = "nxstaurusgui"
 #: package instance
-ITOOL = __import__(TOOL)
+# ITOOL = __import__(TOOL)
 
 
 DATADIR = os.path.join(TOOL, "data")
@@ -49,6 +51,14 @@ def read(fname):
     :param fname: readme file name
     """
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+
+def get_version():
+    path = Path(__file__).parent / "nxstaurusgui" / "release.py"
+    spec = spec_from_file_location("nxstaurusgui", path.as_posix())
+    module = module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 needs_pytest = set(['test']).intersection(sys.argv)
@@ -75,7 +85,7 @@ SCRIPTS = ['nxsmacrogui']
 package_data = {'nxstaurusgui': ['data/desylogo.png', 'data/config.xml']
                 }
 
-release = ITOOL.__version__
+release = get_version().__version__
 version = ".".join(release.split(".")[:2])
 name = "NXS Taurus GUI"
 
@@ -83,7 +93,7 @@ name = "NXS Taurus GUI"
 #: metadata for distutils
 SETUPDATA = dict(
     name="nxstaurusgui",
-    version=ITOOL.__version__,
+    version=release,
     author="Jan Kotanski",
     author_email="jankotan@gmail.com",
     maintainer="Jan Kotanski",
@@ -107,19 +117,20 @@ SETUPDATA = dict(
         'Intended Audience :: Science/Research',
         'Topic :: Scientific/Engineering :: Physics',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
+        # 'Programming Language :: Python :: 2.7',
+        # 'Programming Language :: Python :: 3',
+        # 'Programming Language :: Python :: 3.4',
+        # 'Programming Language :: Python :: 3.5',
+        # 'Programming Language :: Python :: 3.6',
+        # 'Programming Language :: Python :: 3.7',
+        # 'Programming Language :: Python :: 3.8',
+        # 'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.14',
+        'Programming Language :: Python :: 3.15',
     ],
     command_options={
         'build_sphinx': {

@@ -1,6 +1,8 @@
-2026-XX-YY Jan Kotanski <jankotan@gmail.com>
+2026-10-29 Jan Kotanski <jankotan@gmail.com>
 	* do not use HDRI repository in pixi tests (#37)
-	* tagged as 1.3.X
+	* add pyproject.toml (#39)
+	* make docu versions (#39)
+	* tagged as 1.4.0
 
 2025-11-12 Jan Kotanski <jankotan@gmail.com>
 	* remove GNOME variables
