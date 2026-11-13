@@ -1,0 +1,4 @@
+title: NXSDataWriter
+email: jan.kotanski@desy.de
+description: "NXSDataWriter"
+include: ['_sources', '_static', '_modules', '_images']
