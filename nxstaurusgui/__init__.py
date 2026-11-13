@@ -26,13 +26,11 @@ from . import config
 from xml.dom import minidom
 import tempfile
 
-from .release import __version__
 
 try:
     import tango
 except Exception:
     import PyTango as tango
-
 
 
 def replaceText(node, text):
